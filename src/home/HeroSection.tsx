@@ -1,5 +1,7 @@
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import Lottie from "lottie-react";
+import troll from "./troll.json";
 
 const HeroSection = () => {
   const [showTroll, setShowTroll] = useState<boolean>(false);
@@ -9,8 +11,8 @@ const HeroSection = () => {
       <div className="hero-section">
         {!showTroll ? (
           <>
-            <h1>Erik</h1>
             <Button
+              className="btn btn-primary"
               onClick={() => {
                 setShowTroll(true);
               }}
@@ -20,14 +22,14 @@ const HeroSection = () => {
             </Button>
           </>
         ) : (
-          <img
+          <div
             className="troll"
             onClick={() => {
               setShowTroll(false);
             }}
-            src="https://images.genius.com/357a5fd671a74479e884e87d56937db7.1000x912x1.png"
-            alt="troll"
-          />
+          >
+            <Lottie animationData={troll} loop={true} />
+          </div>
         )}
       </div>
     </>
